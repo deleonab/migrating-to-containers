@@ -57,6 +57,12 @@ docker run --network web_app_network -h mysqlserverhost --name=mysql-server-cont
 
 
 ```
-![new mysql serer container](./images/new-mysql-container.JPG)
+![new mysql server container](./images/new-mysql-container.JPG)
 
+
+```
+docker ps -a
+```
+
+![new mysql server container](./images/container-running2.JPG)
 
