@@ -72,6 +72,11 @@ docker ps -a
 ```
 touch create_user.sql
 ```
+### Put the script in create_user.sql
 ```
-CREATE USER ''@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON * . * TO ''@'%'; 
+CREATE USER ''@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON * . * TO ''@'%';
+```
+Run the sql script to create the user
+```
+docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql
  ```
