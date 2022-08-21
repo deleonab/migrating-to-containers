@@ -10,7 +10,7 @@ docker pull mysql/mysql-server:latest
 
 ### The next step is to deploy the new MySQL container by running it
 ```
-docker run --name mysql_container -e MYSQL_ROOT_PASSWORD="Olupero2023%mysql" -d mysql/mysql-server:latest
+docker run --name mysql-server-container -e MYSQL_ROOT_PASSWORD="Olupero2023%mysql" -d mysql/mysql-server:latest
 ```
 ### some-mysql is the name you want to assign to your container, my-secret-pw is the password to be set for the MySQL root user and tag is the tag specifying the MySQL version you want.
 
@@ -26,8 +26,8 @@ docker ps -a
 ### I stopped and removed the previously created container and verified the removal
 ```
 docker ps -a
-docker stop mysql_container
-docker rm mysql_container
+docker stop mysql-server-container
+docker rm mysql-server-container
 ```
 
 ### I will create a network which is of  DRVER type Bridge  by default
@@ -41,3 +41,12 @@ docker network create --subnet=172.18.0.0/24 web_app_network
 ![network created](./images/network-created.JPG)
 
 ### For security, I will create an environment variable to store the root password
+```
+export MYSQL_PW=<mychosenpassword>
+```
+### Now we can run/deploy tghe container in the new network ad pass in the password variable
+
+```
+docker run --network web_app_network -h mysqlserverhost --name=mysql-server-container -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest
+```
+
