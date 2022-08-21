@@ -85,3 +85,5 @@ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql
 ```
  docker run --network web_app_network --name mysql-client-container -it --rm mysql mysql -h mysqlserverhost -u  -p
  ```
+
+ 
