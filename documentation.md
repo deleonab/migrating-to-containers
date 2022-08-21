@@ -44,9 +44,19 @@ docker network create --subnet=172.18.0.0/24 web_app_network
 ```
 export MYSQL_PW=<mychosenpassword>
 ```
-### Now we can run/deploy tghe container in the new network ad pass in the password variable
+### Now we can pull the image and run/deploy tghe container in the new network ad pass in the password variable
 
 ```
 docker run --network web_app_network -h mysqlserverhost --name=mysql-server-container -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest
 ```
+
+```
+-h hostname
+--network connects container to a network
+-d runs the container in detached mode
+
+
+```
+![new mysql serer container](./images/new-mysql-container.JPG)
+
 
