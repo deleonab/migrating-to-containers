@@ -66,3 +66,12 @@ docker ps -a
 
 ![new mysql server container](./images/container-running2.JPG)
 
+### it is best practice not to connect to the MySQL server remotely using the root user. Therefore, we will create an SQL script that will create a user we can use to connect remotely.
+
+### Create a file and name it create_user.sql and add the below code in the file:
+```
+touch create_user.sql
+```
+```
+CREATE USER ''@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON * . * TO ''@'%'; 
+ ```
