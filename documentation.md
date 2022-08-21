@@ -80,3 +80,8 @@ Run the sql script to create the user
 ```
 docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql
  ```
+
+ ### I will spin another container using the same mysql image to launch a mysql client container
+```
+ docker run --network web_app_network --name mysql-client-container -it --rm mysql mysql -h mysqlserverhost -u  -p
+ ```
