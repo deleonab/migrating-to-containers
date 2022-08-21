@@ -20,3 +20,24 @@ docker ps -a
 ```
 ![mysql container](./images/mysql-container.JPG)
 
+### Next we shall create a mysql client container and a mysql server container.
+# First let us create the network they will be attached to.
+
+### I stopped and removed the previously created container and verified the removal
+```
+docker ps -a
+docker stop mysql_container
+docker rm mysql_container
+```
+
+### I will create a network which is of  DRVER type Bridge  by default
+
+```
+docker network create --subnet=172.18.0.0/24 web_app_network
+```
+
+### Network created successfullly
+
+![network created](./images/network-created.JPG)
+
+### For security, I will create an environment variable to store the root password
